@@ -52,7 +52,7 @@ class UsuarioController extends BaseController
             array_push($estudiantes, $estudiante);
         }
         $conexiondb->close();
-        return $estudiantes;
+        return $estudiante;
     }
 
     function readActividad()

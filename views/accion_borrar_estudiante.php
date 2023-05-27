@@ -2,14 +2,17 @@
 require '../models/estudiante.php';
 require '../controllers/conexionDbController.php';
 require '../controllers/baseController.php';
-require '../controllers/usuariosController.php';
+require '../controllers/estudianteController.php';
 
-use usuarioController\UsuarioController;
+use estudianteController\EstudianteController;
 
-$usuarioController = new UsuarioController();
-$resultado = $usuarioController->delete($_GET['id']);
+$estudianteController = new EstudianteController();
+$resultado = $estudianteController->delete($_GET['codigo']);
 if ($resultado) {
     echo '<h1>Usuario borrado</h1>';
 } else {
     echo '<h1>No se pudo borrar el usuario</h1>';
 }
+?>
+<br>
+<a href="../indexEstudiante.php"> Volver</a>

@@ -2,13 +2,13 @@
 require 'models/actividad.php';
 require 'controllers/conexionDbController.php';
 require 'controllers/baseController.php';
-require 'controllers/usuariosController.php';
+require 'controllers/actividadController.php';
 
-use usuarioController\UsuarioController;
+use actividadController\ActividadController;
 
-$usuarioController = new UsuarioController();
+$actividadController = new ActividadController();
 
-$actividad = $usuarioController->read();
+$actividad = $actividadController->read();
 ?>
 
 <!DOCTYPE html>

@@ -2,13 +2,13 @@
 require 'models/estudiante.php';
 require 'controllers/conexionDbController.php';
 require 'controllers/baseController.php';
-require 'controllers/usuariosController.php';
+require 'controllers/estudianteController.php';
 
-use usuarioController\UsuarioController;
+use estudianteController\EstudianteController;
 
-$usuarioController = new UsuarioController();
+$estudianteController = new EstudianteController();
 
-$estudiante = $usuarioController->read();
+$estudiantes = $estudianteController->read();
 ?>
 
 <!DOCTYPE html>
@@ -28,17 +28,19 @@ $estudiante = $usuarioController->read();
                 <tr>
                     <th>Código</th>
                     <th>Nombre</th>
+                    <th>Apellido</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                foreach ($estudiante as $estudiante) {
+                foreach ($estudiantes as $estudiante) {
                     echo '<tr>';
                     echo '  <td>' . $estudiante->getCodigo() . '</td>';
                     echo '  <td>' . $estudiante->getNombre() . '</td>';
+                    echo '  <td>' . $estudiante->getApellido() . '</td>';
                     echo '  <td>';
-                    echo '      <a href="views/form_estudiante.php?id=' . $usuario->getCodigo() . '">modificar</a>';
-                    echo '      <a href="views/accion_borrar_estudiante.php?id=' . $usuario->getCodigo() . '">borrar</a>';
+                    echo '      <a href="views/form_estudiante.php?codigo=' . $estudiante->getCodigo() . '">modificar</a>';
+                    echo '      <a href="views/accion_borrar_estudiante.php?codigo=' . $estudiante->getCodigo() . '">borrar</a>';
                     echo '  </td>';
                     echo '</tr>';
                 }

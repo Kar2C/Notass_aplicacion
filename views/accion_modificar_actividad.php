@@ -2,19 +2,20 @@
 require '../models/actividad.php';
 require '../controllers/conexionDbController.php';
 require '../controllers/baseController.php';
-require '../controllers/usuariosController.php';
+require '../controllers/actividadController.php';
 
 use actividad\Actividad;
-use usuarioController\UsuarioController;
+use actividadController\ActividadController;
 
 $actividad = new Actividad();
 $actividad->setId($_POST['id']);
 $actividad->setDescripcion($_POST['descripcion']);
 $actividad->setNota($_POST['nota']);
+$actividad->setCodigoEstudiante($_POST['codigoEstudiante']);
 
 
-$usuarioController = new UsuarioController();
-$resultado = $usuarioController->update($actividad->getId(),$codigo);
+$actividadController = new ActividadController();
+$resultado = $actividadController->update($actividad->getId(),$codigo);
 if ($resultado) {
     echo '<h1>Actividad modificada</h1>';
 } else {

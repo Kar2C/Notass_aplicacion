@@ -2,10 +2,10 @@
 require '../models/estudiante.php';
 require '../controllers/conexionDbController.php';
 require '../controllers/baseController.php';
-require '../controllers/usuariosController.php';
+require '../controllers/estudianteController.php';
 
 use estudiante\Estudiante;
-use usuarioController\UsuarioController;
+use estudianteController\EstudianteController;
 
 $codigo = empty($_GET['codigo']) ? '' : $_GET['codigo'];
 $titulo = 'Registrar Estudiantes';
@@ -14,8 +14,8 @@ $estudiante = new Estudiante();
 if (!empty($codigo)) {
     $titulo = 'Modificar Estudiante';
     $urlAction = "accion_modificar_estudiante.php";
-    $usuarioController = new UsuarioController();
-    $estudiante = $usuarioController->readRow($codigo);
+    $estudianteController = new EstudianteController();
+    $estudiante = $estudianteController->readRow($codigo);
 }
 ?>
 <!DOCTYPE html>
@@ -31,12 +31,17 @@ if (!empty($codigo)) {
     <form action="<?php echo $urlAction; ?>" method="post">
         <label>
             <span>Código:</span>
-            <input type="number" name="codigo" min="1" value="<?php echo $usuario->getCodigo(); ?>" required>
+            <input type="number" name="codigo" min="1" value="<?php echo $estudiante->getCodigo(); ?>" required>
         </label>
         <br>
         <label>
             <span>Nombre:</span>
-            <input type="text" name="nombre" value="<?php echo $usuario->getNombre(); ?>" required>
+            <input type="text" name="nombres" value="<?php echo $estudiante->getNombre(); ?>" required>
+        </label>
+        <br>
+        <label>
+            <span>Apellido:</span>
+            <input type="text" name="apellidos" value="<?php echo $estudiante->getApellido(); ?>" required>
         </label>
         <br>
         <button type="submit">Guardar</button>

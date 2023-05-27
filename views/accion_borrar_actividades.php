@@ -2,12 +2,12 @@
 require '../models/actividad.php';
 require '../controllers/conexionDbController.php';
 require '../controllers/baseController.php';
-require '../controllers/usuariosController.php';
+require '../controllers/actividadController.php';
 
-use usuarioController\UsuarioController;
+use actividadController\ActividadController;
 
-$usuarioController = new UsuarioController();
-$resultado = $usuarioController->delete($_GET['id']);
+$actividadController = new ActividadController();
+$resultado = $actividadController->delete($_GET['id']);
 if ($resultado) {
     echo '<h1>Usuario borrado</h1>';
 } else {

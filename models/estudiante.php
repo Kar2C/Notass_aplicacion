@@ -6,6 +6,8 @@ class Estudiante
 {
     private $codigo;
     private $nombre;
+    private $apellido;
+
 
     public function getCodigo()
     {
@@ -23,5 +25,14 @@ class Estudiante
     public function setNombre($value)
     {
         $this->nombre = $value;
+    }
+
+    public function getApellido()
+    {
+        return $this->apellido;
+    }
+    public function setApellido($value)
+    {
+        $this->apellido = $value;
     }
 }

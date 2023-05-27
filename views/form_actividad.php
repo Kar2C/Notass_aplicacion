@@ -2,10 +2,10 @@
 require '../models/actividad.php';
 require '../controllers/conexionDbController.php';
 require '../controllers/baseController.php';
-require '../controllers/usuariosController.php';
+require '../controllers/actividadController.php';
 
 use actividad\Actividad;
-use usuarioController\UsuarioController;
+use actividadController\ActividadController;
 
 $id= empty($_GET['id']) ? '' : $_GET['id'];
 $titulo= 'Registrar Actividad';
@@ -14,8 +14,8 @@ $actividad = new Actividad();
 if (!empty($id)){
     $titulo ='Modificar Actividad';
     $urlAction = "accion_modificar_Actividad.php";
-    $usuarioController = new UsuarioController();
-    $actividad = $usuarioController->readRow($id);
+    $usuarioController = new ActividadController();
+    $actividad = $actividadController->readRow($id);
 }
 ?>
 <!DOCTYPE html>

@@ -2,17 +2,18 @@
 require '../models/estudiante.php';
 require '../controllers/conexionDbController.php';
 require '../controllers/baseController.php';
-require '../controllers/usuariosController.php';
+require '../controllers/estudianteController.php';
 
 use estudiante\Estudiante;
-use usuarioController\UsuarioController;
+use estudianteController\EstudianteController;
 
 $estudiante = new Estudiante();
 $estudiante->setCodigo($_POST['codigo']);
-$estudiante->setNombre($_POST['nombre']);
+$estudiante->setNombre($_POST['nombres']);
+$estudiante->setApellido($_POST['apellidos']);
 
-$usuarioController = new UsuarioController();
-$resultado = $usuarioController->update($estudiante->getCodigo(),$codigo);
+$estudianteController = new EstudianteController();
+$resultado = $estudianteController->update($estudiante->getCodigo(),$estudiante);
 if ($resultado) {
     echo '<h1>Estudiante modificado</h1>';
 } else {
@@ -20,4 +21,4 @@ if ($resultado) {
 }
 ?>
 <br>
-<a href="../index.php">Volver al inicio</a>
+<a href="../indexEstudiante.php">Volver al inicio</a>

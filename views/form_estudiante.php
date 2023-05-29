@@ -29,6 +29,8 @@ if (!empty($codigo)) {
 <body>
     <h1><?php echo $titulo; ?></h1>
     <form action="<?php echo $urlAction; ?>" method="post">
+    <p>Por favor ingrese los siguientes datos del estudiante: </p>
+
         <label>
             <span>Código:</span>
             <input type="number" name="codigo" min="1" value="<?php echo $estudiante->getCodigo(); ?>" required>
@@ -43,7 +45,7 @@ if (!empty($codigo)) {
             <span>Apellido:</span>
             <input type="text" name="apellidos" value="<?php echo $estudiante->getApellido(); ?>" required>
         </label>
-        <br>
+        <br> <br>
         <button type="submit">Guardar</button>
     </form>
 </body>

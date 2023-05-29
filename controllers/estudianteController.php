@@ -23,11 +23,7 @@ class EstudianteController extends BaseController
         $resultadoSQL = $conexiondb->execSQL($sql);
         $conexiondb->close();
 
-        if ($resultadoSQL) {
-            return true;
-        } else {
-            return false;
-        }
+        return $resultadoSQL;
     }
 
     function read()

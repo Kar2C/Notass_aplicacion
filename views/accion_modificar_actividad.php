@@ -11,11 +11,10 @@ $actividad = new Actividad();
 $actividad->setId($_POST['id']);
 $actividad->setDescripcion($_POST['descripcion']);
 $actividad->setNota($_POST['nota']);
-$actividad->setCodigoEstudiante($_POST['codigoEstudiante']);
-
+$codigo = $_POST['codigo'];
 
 $actividadController = new ActividadController();
-$resultado = $actividadController->update($actividad->getId(),$codigo);
+$resultado = $actividadController->update($actividad->getId(),$actividad);
 if ($resultado) {
     echo '<h1>Actividad modificada</h1>';
 } else {
@@ -23,4 +22,4 @@ if ($resultado) {
 }
 ?>
 <br>
-<a href="../index.php">Volver al inicio</a>
+<a href="../indexActividad.php?codigo=<?php echo $codigo; ?>">Regresar a la lista de actividades</a>
